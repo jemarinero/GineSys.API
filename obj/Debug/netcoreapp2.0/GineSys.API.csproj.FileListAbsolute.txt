@@ -1,0 +1,11 @@
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.csprojResolveAssemblyReference.cache
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.csproj.CoreCompileInputs.cache
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.AssemblyInfoInputs.cache
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.AssemblyInfo.cs
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\bin\Debug\netcoreapp2.0\GineSys.API.deps.json
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\bin\Debug\netcoreapp2.0\GineSys.API.runtimeconfig.json
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\bin\Debug\netcoreapp2.0\GineSys.API.runtimeconfig.dev.json
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\bin\Debug\netcoreapp2.0\GineSys.API.dll
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\bin\Debug\netcoreapp2.0\GineSys.API.pdb
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.dll
+C:\Users\josue.marinero\Documents\GitHub\GineSysApp\GineSys.API\obj\Debug\netcoreapp2.0\GineSys.API.pdb

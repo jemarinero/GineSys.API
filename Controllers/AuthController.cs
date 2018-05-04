@@ -66,7 +66,10 @@ namespace GineSys.API.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]{
                     new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                    new Claim(ClaimTypes.Name, userFromRepo.Username)
+                    new Claim(ClaimTypes.Name, userFromRepo.Username),
+                    new Claim("nombreUsuario",userFromRepo.NombreCompleto),
+                    new Claim("isDoctor",userFromRepo.IsDoctor.ToString()),
+                    new Claim("isAdmin",userFromRepo.IsAdmin.ToString())
                 }),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),

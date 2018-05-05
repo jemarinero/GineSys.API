@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using GineSys.API.Models;
 
-namespace GineSys.API.Data
+namespace GineSys.API.Data.Interfaces
 {
     public interface IAuthRepository
     {

@@ -11,9 +11,10 @@ using System;
 namespace GineSys.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180504201053_DataAnotations")]
+    partial class DataAnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,54 +62,6 @@ namespace GineSys.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Aseguradoras");
-                });
-
-            modelBuilder.Entity("GineSys.API.Models.GrupoSanguineo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<DateTime?>("FechaCreacion");
-
-                    b.Property<DateTime?>("FechaModificacion");
-
-                    b.Property<string>("UsuarioCreacion")
-                        .HasMaxLength(20);
-
-                    b.Property<string>("UsuarioModificacion")
-                        .HasMaxLength(20);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GruposSanguineos");
-                });
-
-            modelBuilder.Entity("GineSys.API.Models.MotivoConsulta", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<DateTime?>("FechaCreacion");
-
-                    b.Property<DateTime?>("FechaModificacion");
-
-                    b.Property<string>("UsuarioCreacion")
-                        .HasMaxLength(20);
-
-                    b.Property<string>("UsuarioModificacion")
-                        .HasMaxLength(20);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MotivosConsulta");
                 });
 
             modelBuilder.Entity("GineSys.API.Models.Ocupacion", b =>

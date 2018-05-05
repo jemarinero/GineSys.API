@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GineSys.API.Data;
+using AutoMapper;
+using GineSys.API.Data.Interfaces;
+using GineSys.API.Data.Repositories;
 using GineSys.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -35,7 +37,9 @@ namespace GineSys.API
             services.AddDbContext<Data.DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
             services.AddCors();
+            services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IOcupacionesRepository, OcupacionesRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters

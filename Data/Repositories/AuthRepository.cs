@@ -1,9 +1,10 @@
 using System;
 using System.Threading.Tasks;
+using GineSys.API.Data.Interfaces;
 using GineSys.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GineSys.API.Data
+namespace GineSys.API.Data.Repositories
 {
     public class AuthRepository : IAuthRepository
     {

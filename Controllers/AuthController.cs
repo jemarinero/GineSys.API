@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System;
 using GineSys.API.Models;
+using GineSys.API.Data.Interfaces;
 
 namespace GineSys.API.Controllers 
 {

@@ -9,6 +9,7 @@ namespace GineSys.API.Helpers
     {
         public AutoMapperProfiles()
         {
+            //ocupacion
             CreateMap<OcupacionToCreateDto,Ocupacion>()
                 .ForMember(dest => dest.FechaCreacion, opt => {
                     opt.ResolveUsing(d => DateTime.Now);
@@ -18,23 +19,40 @@ namespace GineSys.API.Helpers
                     opt.ResolveUsing(d => DateTime.Now);
                 });
             CreateMap<OcupacionToUpdateDto, Ocupacion>()
-                .ForMember(dest => dest.FechaCreacion, opt => {
-                    opt.MapFrom(src => src.FechaCreacion);
-                })
-                .ForMember(dest => dest.UsuarioCreacion, opt => {
-                    opt.MapFrom(src => src.UsuarioCreacion);
-                })
                 .ForMember(dest => dest.FechaModificacion, opt => {
                     opt.ResolveUsing(d => DateTime.Now);
                 });
-                
-            CreateMap<Ocupacion, OcupacionToUpdateDto>()
+            CreateMap<Ocupacion, OcupacionToUpdateDto>();
+
+            //religion
+            CreateMap<ReligionToCreateDto,Religion>()
                 .ForMember(dest => dest.FechaCreacion, opt => {
-                    opt.MapFrom(src => src.FechaCreacion);
-                })
-                .ForMember(dest => dest.UsuarioCreacion, opt => {
-                    opt.MapFrom(src => src.UsuarioCreacion);
+                    opt.ResolveUsing(d => DateTime.Now);
                 });
+            CreateMap<Religion,ReligionToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<ReligionToUpdateDto, Religion>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Religion, ReligionToUpdateDto>();
+
+            //Aseguradoras
+            CreateMap<AseguradoraToCreateDto,Aseguradora>()
+                .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Aseguradora,AseguradoraToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<AseguradoraToUpdateDto, Aseguradora>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Aseguradora, AseguradoraToUpdateDto>();
         }
     }
 }

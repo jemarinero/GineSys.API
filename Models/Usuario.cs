@@ -16,6 +16,7 @@ namespace GineSys.API.Models
         public bool IsDoctor { get; set; }
         public byte[] PasswordHash {set; get; }
         public byte[] PasswordSalt { get; set; }
+        public string PhotoUrl { get; set; }
         public DateTime FechaCreacion { get; set; }
         [MaxLength(20)]
         public string UsuarioCreacion { get; set; }   

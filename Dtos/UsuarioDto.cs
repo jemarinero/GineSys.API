@@ -15,6 +15,7 @@ namespace GineSys.API.Dtos
         public string NombreCompleto { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsDoctor { get; set; }
+        public string PhotoUrl { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }   
         public DateTime? FechaModificacion { get; set; }

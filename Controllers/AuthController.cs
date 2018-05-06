@@ -70,7 +70,8 @@ namespace GineSys.API.Controllers
                     new Claim(ClaimTypes.Name, userFromRepo.Username),
                     new Claim("nombreUsuario",userFromRepo.NombreCompleto),
                     new Claim("isDoctor",userFromRepo.IsDoctor.ToString()),
-                    new Claim("isAdmin",userFromRepo.IsAdmin.ToString())
+                    new Claim("isAdmin",userFromRepo.IsAdmin.ToString()),
+                    new Claim("photoUrl",userFromRepo.PhotoUrl)
                 }),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),

@@ -40,6 +40,8 @@ namespace GineSys.API
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IOcupacionesRepository, OcupacionesRepository>();
+            services.AddScoped<IReligionesRepository, ReligionesRepository>();
+            services.AddScoped<IAseguradorasRepository, AseguradorasRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters

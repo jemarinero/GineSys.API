@@ -40,28 +40,30 @@ namespace GineSys.API.Controllers
             return Ok(ocupacion);
         }
 
-        [HttpPost("nuevo")]
-        public async Task<IActionResult> CreateOcupacion([FromBody]OcupacionDto ocupacionDto)
+        [HttpPost]
+        public async Task<IActionResult> PostOcupacion([FromBody]OcupacionToCreateDto ocupacionDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var ocupacionToCreate = _mapper.Map<Ocupacion>(ocupacionDto);
-            ocupacionToCreate.FechaCreacion = DateTime.Now;
             _repo.Add(ocupacionToCreate);
             await _repo.SaveAll();
 
             return StatusCode(201);
         }
 
-        [HttpPut("modificar")]
-        public async Task<IActionResult> UpdateOcupacion([FromBody]Ocupacion ocupacionToUpdateDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutOcupacion(int id, [FromBody]OcupacionToUpdateDto ocupacionToUpdateDto)
         {
+            if (id != ocupacionToUpdateDto.Id)
+                ModelState.AddModelError("Id", "La ocupacion a modificar no existe");
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+
             var ocupacionToUpdate = _mapper.Map<Ocupacion>(ocupacionToUpdateDto);
-            ocupacionToUpdate.FechaModificacion = DateTime.Now;
 
             _repo.Update(ocupacionToUpdate);
             await _repo.SaveAll();

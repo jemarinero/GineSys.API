@@ -18,7 +18,6 @@ namespace GineSys.API.Controllers
     {
         private readonly IOcupacionesRepository _repo;
         private readonly IMapper _mapper;
-        private readonly DataContext context;
         public OcupacionesController(IOcupacionesRepository repo, IMapper mapper)
         {
             this._mapper = mapper;

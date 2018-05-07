@@ -15,7 +15,6 @@ namespace GineSys.API.Controllers
     {
         private readonly IReligionesRepository _repo;
         private readonly IMapper _mapper;
-        private readonly DataContext context;
         public ReligionesController(IReligionesRepository repo, IMapper mapper)
         {
             this._mapper = mapper;

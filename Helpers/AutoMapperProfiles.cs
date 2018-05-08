@@ -53,6 +53,21 @@ namespace GineSys.API.Helpers
                     opt.ResolveUsing(d => DateTime.Now);
                 });
             CreateMap<Aseguradora, AseguradoraToUpdateDto>();
+
+            //Grupos Sanguineos
+            CreateMap<GrupoSanguineoToCreateDto,GrupoSanguineo>()
+                .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<GrupoSanguineo,GrupoSanguineoToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<GrupoSanguineoToUpdateDto, GrupoSanguineo>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<GrupoSanguineo, GrupoSanguineoToUpdateDto>();
         }
     }
 }

@@ -13,5 +13,23 @@ namespace GineSys.API.Data
         public DbSet<Aseguradora> Aseguradoras { get; set; }
         public DbSet<GrupoSanguineo> GruposSanguineos { get; set; }
         public DbSet<MotivoConsulta> MotivosConsulta { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        {
+            modelBuilder.Entity<Paciente>()
+                .HasOne(p => p.Ocupacion)
+                .WithMany(p => p.OcupacionPacientes)
+                .HasForeignKey(p => p.OcupacionId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
+            
+            modelBuilder.Entity<Paciente>()
+                .HasOne(p => p.OcupacionConyugue)
+                .WithMany(p => p.OcupacionConyugues)
+                .HasForeignKey(p => p.OcupacionIdConyugue)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

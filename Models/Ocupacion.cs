@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GineSys.API.Models
@@ -15,5 +16,8 @@ namespace GineSys.API.Models
         [MaxLength(20)]
         public string UsuarioModificacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
+
+        public ICollection<Paciente> OcupacionPacientes { get; set; }
+        public ICollection<Paciente> OcupacionConyugues { get; set; }
     }
 }

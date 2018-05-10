@@ -68,6 +68,14 @@ namespace GineSys.API.Helpers
                     opt.ResolveUsing(d => DateTime.Now);
                 });
             CreateMap<GrupoSanguineo, GrupoSanguineoToUpdateDto>();
+
+            //Pacientes
+            CreateMap<PacienteForListDto,Paciente>();
+            CreateMap<Paciente,PacienteForListDto>()
+            .ForMember(dest => dest.Edad, opt => {
+                    opt.ResolveUsing(d => d.FechaNacimiento.CalculateAge());
+                });
+            
         }
     }
 }

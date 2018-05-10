@@ -14,7 +14,7 @@ namespace GineSys.API.Models
         public string NumeroIdentidad { get; set; }
         [MaxLength(255)]
         public string Direccion { get; set; }
-        public DateTime? FechaNacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public DateTime? FechaUltMenstruacion { get; set; }
         public int? EstadoCivil { get; set; }
         [MaxLength(20)]

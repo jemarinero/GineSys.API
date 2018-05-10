@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GineSys.API.Data.Interfaces;
+using GineSys.API.Dtos;
+using GineSys.API.Helpers;
 using GineSys.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,9 +38,19 @@ namespace GineSys.API.Data.Repositories
             return paciente;
         }
 
-        public async Task<IEnumerable<Paciente>> GetAll()
+        public async Task<IEnumerable<PacienteForListDto>> GetAll()
         {
-            var pacientes = await this._context.Pacientes.ToListAsync();
+            var pacientes = await this._context.Pacientes.Select(p => new PacienteForListDto {
+                Id = p.Id,
+                Nombre = p.Nombre,
+                Direccion = p.Direccion,
+                FechaNacimiento = p.FechaNacimiento,
+                Edad = p.FechaNacimiento.CalculateAge(),
+                Telefono = p.Telefono,
+                Correo = p.Correo,
+                Estado = p.Estado,
+            }).ToListAsync();
+
             return pacientes;
         }
 

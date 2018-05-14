@@ -75,7 +75,12 @@ namespace GineSys.API.Helpers
             .ForMember(dest => dest.Edad, opt => {
                     opt.ResolveUsing(d => d.FechaNacimiento.CalculateAge());
                 });
-            
+            CreateMap<PacienteForDetailDto,Paciente>()
+                .ForAllMembers(opt => opt.Ignore());
+            CreateMap<Paciente,PacienteForDetailDto>(MemberList.None)
+                .ForMember(dest => dest.Edad, opt => {
+                    opt.ResolveUsing(d => d.FechaNacimiento.CalculateAge());
+                });
         }
     }
 }

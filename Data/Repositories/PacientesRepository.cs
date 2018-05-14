@@ -32,10 +32,32 @@ namespace GineSys.API.Data.Repositories
             this._context.Update(entity);
         }
 
-        public async Task<Paciente> GetById(int id)
+        public async Task<PacienteForDetailDto> GetById(int id)
         {
             var paciente = await this._context.Pacientes.FirstOrDefaultAsync(o => o.Id == id);
-            return paciente;
+            var pacienteForDetail = new PacienteForDetailDto() {
+                Id = paciente.Id,
+                Nombre = paciente.Nombre,
+                NumeroIdentidad = paciente.NumeroIdentidad,
+                Direccion = paciente.Direccion,
+                FechaNacimiento = paciente.FechaNacimiento,
+                Edad = paciente.FechaNacimiento.CalculateAge(),
+                FechaUltMenstruacion = paciente.FechaUltMenstruacion,
+                EstadoCivil = paciente.EstadoCivil,
+                Telefono = paciente.Telefono,
+                hasSeguroMedico = paciente.hasSeguroMedico,
+                Correo = paciente.Correo,
+                OcupacionId = paciente.OcupacionId,
+                NombreConyugue = paciente.NombreConyugue,
+                OcupacionIdConyugue = paciente.OcupacionIdConyugue,
+                ReligionId = paciente.ReligionId,
+                AseguradoraId = paciente.AseguradoraId,
+                GrupoSanguineoId = paciente.GrupoSanguineoId,
+                Foto = paciente.Foto,
+                Observacion = paciente.Observacion,
+                Estado = paciente.Estado,
+            };
+            return pacienteForDetail;
         }
 
         public async Task<IEnumerable<PacienteForListDto>> GetAll()

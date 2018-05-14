@@ -12,6 +12,6 @@ namespace GineSys.API.Data.Interfaces
         void Update<T>(T entity) where T: class;
         Task<bool> SaveAll();
         Task<IEnumerable<PacienteForListDto>> GetAll();
-        Task<Paciente> GetById(int id);
+        Task<PacienteForDetailDto> GetById(int id);
     }
 }

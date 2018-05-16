@@ -11,9 +11,10 @@ using System;
 namespace GineSys.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180516204731_infoadicional")]
+    partial class infoadicional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,13 +224,13 @@ namespace GineSys.API.Migrations
                     b.Property<string>("Telefono")
                         .HasMaxLength(20);
 
-                    b.Property<int>("TerminoUltimoEmbarazo");
-
                     b.Property<bool>("hasCirugiaPrevia");
 
                     b.Property<bool>("hasLegrados");
 
                     b.Property<bool?>("hasSeguroMedico");
+
+                    b.Property<bool>("hasUltimoEmbarazoTerminado");
 
                     b.Property<bool>("isAlergica");
 

@@ -11,9 +11,10 @@ using System;
 namespace GineSys.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180516173302_pacientecolumnasgineobst")]
+    partial class pacientecolumnasgineobst
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,25 +143,7 @@ namespace GineSys.API.Migrations
 
                     b.Property<int?>("AseguradoraId");
 
-                    b.Property<int>("CantidadAbortos");
-
-                    b.Property<int>("CantidadCesareas");
-
-                    b.Property<int>("CantidadEctopicos");
-
-                    b.Property<int>("CantidadEmbarazos");
-
-                    b.Property<int>("CantidadHijosMuertos");
-
-                    b.Property<int>("CantidadHijosVivos");
-
                     b.Property<int>("CantidadMenstruacion");
-
-                    b.Property<int>("CantidadMolas");
-
-                    b.Property<int>("CantidadObitos");
-
-                    b.Property<int>("CantidadPartosVaginales");
 
                     b.Property<string>("Cirugias");
 
@@ -185,12 +168,6 @@ namespace GineSys.API.Migrations
                     b.Property<DateTime>("FechaNacimiento");
 
                     b.Property<DateTime?>("FechaUltMenstruacion");
-
-                    b.Property<DateTime?>("FechaUltimaCesarea");
-
-                    b.Property<DateTime?>("FechaUltimaCitologia");
-
-                    b.Property<DateTime?>("FechaUltimoEmbarazo");
 
                     b.Property<byte[]>("Foto");
 
@@ -223,11 +200,7 @@ namespace GineSys.API.Migrations
                     b.Property<string>("Telefono")
                         .HasMaxLength(20);
 
-                    b.Property<int>("TerminoUltimoEmbarazo");
-
                     b.Property<bool>("hasCirugiaPrevia");
-
-                    b.Property<bool>("hasLegrados");
 
                     b.Property<bool?>("hasSeguroMedico");
 

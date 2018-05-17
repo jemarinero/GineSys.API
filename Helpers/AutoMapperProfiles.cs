@@ -80,6 +80,36 @@ namespace GineSys.API.Helpers
                 .ForMember(dest => dest.Edad, opt => {
                     opt.ResolveUsing(d => d.FechaNacimiento.CalculateAge());
                 });
+
+             //EnfermedadesAntecedentes
+            CreateMap<EnfermedadAntecedenteToCreateDto,EnfermedadAntecedente>()
+                .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<EnfermedadAntecedente,EnfermedadAntecedenteToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<EnfermedadAntecedenteToUpdateDto, EnfermedadAntecedente>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<EnfermedadAntecedente, EnfermedadAntecedenteToUpdateDto>();
+
+            //Parentescos
+            CreateMap<ParentescoToCreateDto,Parentesco>()
+                .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Parentesco,ParentescoToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<ParentescoToUpdateDto, Parentesco>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Parentesco, ParentescoToUpdateDto>();
         }
     }
 }

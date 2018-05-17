@@ -14,6 +14,8 @@ namespace GineSys.API.Data
         public DbSet<GrupoSanguineo> GruposSanguineos { get; set; }
         public DbSet<MotivoConsulta> MotivosConsulta { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<EnfermedadAntecedente> EnfermedadesAntecedentes { get; set; }
+        public DbSet<Parentesco> Parentescos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {

@@ -31,41 +31,40 @@ namespace GineSys.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var pacientes = await _repo.GetById(id);
+            var pacientes = await _repo.GetByIdDto(id);
 
             return Ok(pacientes);
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> Post([FromBody]GrupoSanguineoToCreateDto grupoSanguineoDto)
-        // {
-        //     if (!ModelState.IsValid)
-        //         return BadRequest(ModelState);
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]PacienteForDetailDto pacienteDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //     var grupoSanguineoToCreate = _mapper.Map<Paciente>(grupoSanguineoDto);
-        //     _repo.Add(grupoSanguineoToCreate);
-        //     await _repo.SaveAll();
+            var pacienteCreatedDto = _mapper.Map<Paciente>(pacienteDto);
+            await _repo.Add(pacienteCreatedDto);
 
-        //     return StatusCode(201);
-        // }
+            return Ok(pacienteCreatedDto);
+        }
 
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> Put(int id, [FromBody]GrupoSanguineoToUpdateDto grupoSanguineoToUpdateDto)
-        // {
-        //     if (id != grupoSanguineoToUpdateDto.Id)
-        //         ModelState.AddModelError("Id", "El grupo sanguineo a modificar no existe");
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody]PacienteForDetailDto pacienteDto)
+        {
+            if (id != pacienteDto.Id)
+                ModelState.AddModelError("Id", "El paciente a modificar no existe");
 
-        //     if (!ModelState.IsValid)
-        //         return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
 
-        //     var grupoSanguineoToUpdate = _mapper.Map<Paciente>(grupoSanguineoToUpdateDto);
+            var pacientoToUpdate = _mapper.Map<Paciente>(pacienteDto);
 
-        //     _repo.Update(grupoSanguineoToUpdate);
-        //     await _repo.SaveAll();
+            _repo.Update(pacientoToUpdate);
+            await _repo.SaveAll();
 
-        //     return Ok();
-        // }
+            return Ok();
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

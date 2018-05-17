@@ -17,9 +17,11 @@ namespace GineSys.API.Data.Repositories
             this._context = context;
 
         }
-        public void Add<T>(T entity) where T : class
+        public async Task<Paciente> Add(Paciente entity)
         {
-            this._context.Add(entity);
+            await this._context.AddAsync(entity);
+            await this._context.SaveChangesAsync();
+            return entity;
         }
 
         public void Delete<T>(T entity) where T : class
@@ -32,7 +34,13 @@ namespace GineSys.API.Data.Repositories
             this._context.Update(entity);
         }
 
-        public async Task<PacienteForDetailDto> GetById(int id)
+        public async Task<Paciente> GetById(int id)
+        {
+            var paciente = await this._context.Pacientes.FirstOrDefaultAsync(o => o.Id == id);
+            return paciente;
+        }
+
+        public async Task<PacienteForDetailDto> GetByIdDto(int id)
         {
             var paciente = await this._context.Pacientes.FirstOrDefaultAsync(o => o.Id == id);
             var pacienteForDetail = new PacienteForDetailDto() {

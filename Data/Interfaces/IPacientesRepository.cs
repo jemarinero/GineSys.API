@@ -7,11 +7,12 @@ namespace GineSys.API.Data.Interfaces
 {
     public interface IPacientesRepository
     {
-        void Add<T>(T entity) where T: class;
+        Task<Paciente> Add(Paciente entity);
         void Delete<T>(T entity) where T: class;
         void Update<T>(T entity) where T: class;
         Task<bool> SaveAll();
         Task<IEnumerable<PacienteForListDto>> GetAll();
-        Task<PacienteForDetailDto> GetById(int id);
+        Task<PacienteForDetailDto> GetByIdDto(int id);
+        Task<Paciente> GetById(int id);
     }
 }

@@ -110,6 +110,21 @@ namespace GineSys.API.Helpers
                     opt.ResolveUsing(d => DateTime.Now);
                 });
             CreateMap<Parentesco, ParentescoToUpdateDto>();
+
+            //Vacunas
+            CreateMap<VacunaToCreateDto,Vacuna>()
+                .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Vacuna,VacunaToCreateDto>()
+                 .ForMember(dest => dest.FechaCreacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<VacunaToUpdateDto, Vacuna>()
+                .ForMember(dest => dest.FechaModificacion, opt => {
+                    opt.ResolveUsing(d => DateTime.Now);
+                });
+            CreateMap<Vacuna, VacunaToUpdateDto>();
         }
     }
 }

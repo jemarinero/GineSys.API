@@ -44,6 +44,7 @@ namespace GineSys.API
             services.AddScoped<IAseguradorasRepository, AseguradorasRepository>();
             services.AddScoped<IGruposSanguineosRepository, GruposSanguineosRepository>();
             services.AddScoped<IPacientesRepository, PacientesRepository>();
+            services.AddScoped<IVacunasRepository, VacunasRepository>();
             services.AddScoped<IParentescosRepository, ParentescosRepository>();
             services.AddScoped<IEnfermedadesAntecedentesRepository, EnfermedadesAntecedentesRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

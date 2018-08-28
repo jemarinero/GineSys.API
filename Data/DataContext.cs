@@ -16,6 +16,7 @@ namespace GineSys.API.Data
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<EnfermedadAntecedente> EnfermedadesAntecedentes { get; set; }
         public DbSet<Parentesco> Parentescos { get; set; }
+        public DbSet<Vacuna> Vacunas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
